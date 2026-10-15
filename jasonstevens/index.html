@@ -69,7 +69,7 @@ a{color:inherit}
 .scene::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,44,82,.45),rgba(18,44,82,0) 55%);pointer-events:none}
 .scene.blue{background:radial-gradient(120% 90% at 30% 20%,#2C5C96 0%,#1D497E 45%,#122C52 100%)}
 .scene.blue::after{display:none}
-@media (prefers-reduced-motion:no-preference){.scene img{transition:transform 7s linear}.scene.on img{transform:scale(1)}}
+@media (prefers-reduced-motion:no-preference){.scene img{transition:transform 9s linear}.scene.on img{transform:scale(1)}}
 .person{position:absolute;right:-3%;bottom:0;width:106%;max-width:none;height:auto;z-index:50;pointer-events:none;filter:drop-shadow(0 12px 28px rgba(5,15,30,.45))}
 .photo figcaption{z-index:60}
 .photo figcaption .lbl{display:inline-block;transition:opacity .4s ease}
@@ -209,11 +209,11 @@ footer{padding-block:24px;font-family:var(--f-mono);font-size:12px;color:var(--m
     <figure class="photo">
       <div class="stage" id="stage">
         <div class="scene blue first on" data-label="Jason Stevens · Portland, Oregon"></div>
-        <div class="scene" data-label="Hollywood soundstages" aria-hidden="true"><img src="bg-studio.webp" alt="" loading="eager" decoding="async" style="object-position:50% 40%"></div>
-        <div class="scene" data-label="Mt. Hood" aria-hidden="true"><img src="bg-hood.webp" alt="" loading="eager" decoding="async" style="object-position:55% 30%"></div>
-        <div class="scene" data-label="Oregon forests" aria-hidden="true"><img src="bg-forest.webp" alt="" loading="eager" decoding="async" style="object-position:50% 50%"></div>
-        <div class="scene" data-label="Downtown Portland" aria-hidden="true"><img src="bg-portland.webp" alt="" loading="eager" decoding="async" style="object-position:45% 40%"></div>
-        <div class="scene" data-label="On set in Portland" aria-hidden="true"><img src="bg-portland-set.webp" alt="" loading="eager" decoding="async" style="object-position:50% 45%"></div>
+        <div class="scene" data-label="Hollywood stages" aria-hidden="true"><img src="bg-studio.webp" alt="" loading="eager" decoding="async" style="object-position:50% 40%"></div>
+        <div class="scene" data-label="On location" aria-hidden="true"><img src="bg-hood.webp" alt="" loading="eager" decoding="async" style="object-position:55% 30%"></div>
+        <div class="scene" data-label="Remote locations" aria-hidden="true"><img src="bg-forest.webp" alt="" loading="eager" decoding="async" style="object-position:50% 50%"></div>
+        <div class="scene" data-label="City shoots" aria-hidden="true"><img src="bg-portland.webp" alt="" loading="eager" decoding="async" style="object-position:45% 40%"></div>
+        <div class="scene" data-label="Commercial sets" aria-hidden="true"><img src="bg-portland-set.webp" alt="" loading="eager" decoding="async" style="object-position:50% 45%"></div>
         <img class="person" src="jason-cutout.webp" alt="Jason Stevens in a navy suit">
       </div>
       <figcaption><span class="lbl" id="sceneLabel">Jason Stevens · Portland, Oregon</span></figcaption>
@@ -322,7 +322,7 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
   var scenes=[].slice.call(document.querySelectorAll('#stage .scene')), label=document.getElementById('sceneLabel');
   if(scenes.length<2) return;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var i=0,z=1,HOLD=3200;
+  var i=0,z=1,HOLD=5200;
   scenes[0].style.zIndex=z;
   function show(n){
     var s=scenes[n]; z++;
