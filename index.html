@@ -1,175 +1,147 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Red Green Blue</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        
-        	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="./favicon.ico">
-        
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Red Green Blue</title>
+	<meta name="description" content="Red Green Blue is a production company. We make films and television.">
+	<meta name="theme-color" content="#050505">
+	<link rel="icon" href="favicon.ico">
+	<style>
+		html, body {
+			margin: 0;
+			height: 100%;
+			background: #050505;
+			overflow: hidden;
+		}
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Welcome</a></li>
-							<li><a href="#one">Highlights</a></li>
-							<li><a href="#two">Experience</a></li>
-							<li><a href="#three">Contact</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+		/* Three light sources — red, green, blue — added together like light.
+		   Where they overlap you get yellow, cyan, magenta, and white. */
+		.stage {
+			position: fixed;
+			inset: 0;
+			display: grid;
+			place-items: center;
+			isolation: isolate;
+		}
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		.orbit {
+			position: absolute;
+			width: 0;
+			height: 0;
+			mix-blend-mode: screen;
+			animation: orbit var(--period) linear infinite;
+			animation-delay: var(--delay);
+		}
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style4 fullscreen fade-up">
-						<div class="inner">
-							<h1><img src="images/RBG_logo-01.png" width="350px"></h1>
-							<h9>Red Green Blue is a production company. <br>We make films and television. <br> See our work below...</h9>
-							
-						</div>
-					</section>
+		.shape {
+			position: absolute;
+			width: 24vmin;
+			height: 24vmin;
+			left: -12vmin;
+			top: -12vmin;
+			border-radius: 22%;
+			background: var(--color);
+			filter: blur(0.3vmin);
+			animation:
+				drift var(--period) ease-in-out infinite alternate,
+				spin calc(var(--period) * 1.7) linear infinite reverse;
+			animation-delay: var(--delay);
+		}
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-                            <a class="image"><img src="images/ts.jpg" alt=""  data-position="25% 25%" /><blockquote>From Thirst Street</blockquote></a>
-							<div class="content">
-								<div class="inner">
-                                    	<h2>Thirst Street</h2>
-                                    <p>Gina, an American flight attendant, falls in with a Parisian bartender on a layover only to find herself tangled in a web of deception, delusion and unrequited amour fou. Premiere: Tribeca Film Festival Distributor: Samuel Goldwyn Films</p>
-									<ul class="actions">
-										<li><a href="#" class="button small">IMDB</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/slt2.png" alt="" data-position="top center" /> <blockquote>From Senior Love Triangle</blockquote></a>
-							<div class="content">
-								<div class="inner">
-									 	<h2>Senior Love Triangle</h2>
-                                    <p>An 84-year old charming but delusional WWII veteran forms relationships with two elderly women and goes on a crusade to save them from the isolation of their retirement homes in East Hollywood.</p>
-									<ul class="actions">
-										<li><a href="#" class="button small">IMDB</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/d.jpg" alt="" data-position="center bottom" /><blockquote>From Diverge</blockquote></a>
-							<div class="content">
-								<div class="inner">
-								 	<h2>Diverge</h2>
-                                    <p>The survivor of a deadly virus is given the chance to reclaim his lost life by stopping the man responsible for the disease. Distributor: Gravitas Ventures</p>
-									<ul class="actions">
-										<li><a href="#" class="button small">IMDB</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
+		.r { --color: #ff2a3d; --period: 9s;  --delay: 0s; }
+		.g { --color: #22ff66; --period: 11s; --delay: -3.6s; }
+		.b { --color: #2a3cff; --period: 13s; --delay: -8.1s; }
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<div class="features">
-								<section>
-									<span class="icon major fa-"></span>
-									<h3>Feature Films</h3>
-									<p>We've sent feature films to festivals such as Tribeca and TIFF with distribution from companies such as Samuel Goldwyn Films. We’ve worked with amazing partners such as Animal Kingdom, RSA, Dogfish, and Archer Grey.</p>
-								</section>
-								<section>
-									<span class="icon major fa-"></span>
-									<h3>Television</h3>
-									<p>We’ve contributed to many tv shows, scripted and non-scripted, live action and animation. We brought youtubers to broadcast and the other way around. Our work has lead to broadcast on networks such as Trutv, College Humor, and Comedy Central.</p>
-								</section>
-								<section>
-									<span class="icon major fa-"></span>
-									<h3>Digital</h3>
-									<p>We have experience partnering with new media and technology startups, including prestigious relationships with Massachusetts General Hospital and Hanson Robotics. We’ve been part of programs across the globe. </p>
-								</section>
-								<section>
-									<span class="icon major fa-"></span>
-									<h3>Consulting</h3>
-									<p>Our greatest strength is our people, if you have a challenge we probably have some experience with a solution. Let us help you; sell you’re tv show, launch your streaming service, or finance your film. </p>
-								</section>
-							
-							</div>
-						</div>
-					</section>
+		@keyframes orbit {
+			to { transform: rotate(360deg); }
+		}
 
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Send us a message here and we'll get right back to you or use the email on the right to contact us directly. <br> Looking forward to connecting.</p>
-							<div class="split style1">
-								<section>
-                                   <section>
-									<ul class="contact">
-                                        	<li>
-											<h3>Email</h3>
-											<a href="mailto:contact@rdgnbl.com">contact@rdgnbl.com</a>
-										</li>
-										<li>
-											<h3>Address</h3>
-											<span>PO Box 75<br />
-											New York City, NY 10276<br />
-											USA</span>
-										</li>
-								
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="https://www.facebook.com/heyrgb/" class="fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="https://www.facebook.com/heyrgb/" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="https://www.linkedin.com/company/12586299/admin/updates/" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-								</section>
-								
-							</div>
-						</div>
-					</section>
+		@keyframes drift {
+			0%   { translate: 5vmin 0;  scale: 0.92; }
+			50%  { translate: 1.4vmin 0;  scale: 1.06; }
+			100% { translate: 7.7vmin 0; scale: 0.96; }
+		}
 
-			</div>
+		@keyframes spin {
+			to { rotate: 360deg; }
+		}
 
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Red Green Blue. All rights reserved.</li><li>Partners: <a href="http://smaglik.com">SMAGLIK</a></li>
-					</ul>
-				</div>
-			</footer>
+		/* A faint glow behind everything so the colors feel lit, not flat. */
+		.stage::before {
+			content: "";
+			position: absolute;
+			width: 49vmin;
+			height: 49vmin;
+			border-radius: 50%;
+			background: radial-gradient(closest-side, rgba(255,255,255,0.06), transparent);
+			animation: breathe 6s ease-in-out infinite alternate;
+		}
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+		@keyframes breathe {
+			to { scale: 1.15; opacity: 0.6; }
+		}
 
-	</body>
+		.corner {
+			position: fixed;
+			bottom: max(28px, env(safe-area-inset-bottom));
+			z-index: 1;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font: 500 11px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+			color: #6b6b6b;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.corner.left  { left: max(32px, env(safe-area-inset-left)); }
+		.corner.right { right: max(32px, env(safe-area-inset-right)); }
+
+		a.corner:hover,
+		a.corner:focus-visible {
+			color: #f5f5f5;
+			outline: none;
+		}
+
+		.rec {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background: #ff2a3d;
+			box-shadow: 0 0 8px #ff2a3d;
+			animation: rec 1.6s steps(1) infinite;
+		}
+
+		@keyframes rec {
+			50% { opacity: 0; }
+		}
+
+		@media (max-width: 600px) {
+			.corner { bottom: 20px; font-size: 10px; letter-spacing: 0.14em; gap: 8px; }
+			.corner.left  { left: 16px; }
+			.corner.right { right: 16px; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.orbit, .shape, .stage::before { animation-play-state: paused; }
+			.rec { animation: none; }
+		}
+	</style>
+</head>
+<body>
+	<main class="stage" role="img" aria-label="Red Green Blue">
+		<div class="orbit r"><div class="shape"></div></div>
+		<div class="orbit g"><div class="shape"></div></div>
+		<div class="orbit b"><div class="shape"></div></div>
+	</main>
+
+	<p class="corner left"><span class="rec"></span><span>&copy; <span id="year">2026</span> Red Green Blue</span></p>
+	<a class="corner right" href="mailto:contact@rdgnbl.com">contact@rdgnbl.com</a>
+
+	<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
 </html>
