@@ -126,8 +126,14 @@
 			.corner.right { right: 16px; }
 		}
 
+		/* Reduced motion (Windows turns this on when "Animation effects" is off):
+		   keep the colors moving, just slower and without the spin. */
 		@media (prefers-reduced-motion: reduce) {
-			.orbit, .shape, .stage::before { animation-play-state: paused; }
+			.orbit { animation-duration: calc(var(--period) * 3); }
+			.shape {
+				animation: drift calc(var(--period) * 2) ease-in-out infinite alternate;
+				animation-delay: var(--delay);
+			}
 			.rec { animation: none; }
 		}
 	</style>
